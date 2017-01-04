@@ -32,6 +32,9 @@ public class SeasonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_season);
         mHelper=new TaskDbHelper(this);
         mTaskListView=(ListView)findViewById(R.id.list_todo);
+        addseason1();
+        addseason2();
+        addseason3();
         updateUI();
         mTaskListView.setOnItemClickListener((AdapterView.OnItemClickListener) new ListClickHandler());
     }
@@ -74,6 +77,7 @@ public class SeasonActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void updateUI() {
         ArrayList<String> taskList = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
@@ -116,5 +120,38 @@ public class SeasonActivity extends AppCompatActivity {
             SeasonActivity.this.startActivity(registerIntent);
         }
 
+    }
+    public void addseason1(){
+        String task="Season 1(2010)";
+        SQLiteDatabase db = mHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+        db.close();
+    }
+    public void addseason2(){
+        String task="Season 2(2012)";
+        SQLiteDatabase db = mHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+        db.close();
+    }
+    public void addseason3(){
+        String task="Season 3(2014)";
+        SQLiteDatabase db = mHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+        db.close();
     }
 }

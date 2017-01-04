@@ -23,8 +23,7 @@
         android:layout_below="@+id/list_todo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText"
-        android:hint="Duration" />
+        android:id="@+id/editText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,8 +33,7 @@
         android:layout_below="@+id/editText"
         android:layout_alignRight="@+id/editText"
         android:layout_alignEnd="@+id/editText"
-        android:id="@+id/editText2"
-        android:hint="Rating" />
+        android:id="@+id/editText2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,6 +43,5 @@
         android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText3"
-        android:hint="Summary" />
+        android:id="@+id/editText3" />
 </RelativeLayout>
