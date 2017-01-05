@@ -26,7 +26,6 @@ public class SeasonActivity extends AppCompatActivity {
     private ListView mTaskListView;
     private ArrayAdapter<String> mAdapter;
     public static int Item;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_season);
@@ -125,6 +124,7 @@ public class SeasonActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
             TextView listText = (TextView) view.findViewById(R.id.task_title);
+            listText.getText();
             Item = position;
             Intent registerIntent=new Intent(SeasonActivity.this,EpisodeActivity.class);
             SeasonActivity.this.startActivity(registerIntent);
