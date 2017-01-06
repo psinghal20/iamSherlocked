@@ -23,6 +23,7 @@ public class EpisodeActivity extends AppCompatActivity {
     private ListView mTaskListViewEp;
     private ArrayAdapter<String> mAdapterEp;
     public static int pos;
+    public static String a;
     EditText et1,et2,et3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +149,7 @@ public class EpisodeActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
             TextView listText = (TextView) view.findViewById(R.id.task_title);
             pos=position;
+            a=listText.getText().toString();
             Intent registerIntent=new Intent(EpisodeActivity.this,DetailsActivity.class);
             EpisodeActivity.this.startActivity(registerIntent);
         }
