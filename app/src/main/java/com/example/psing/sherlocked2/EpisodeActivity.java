@@ -31,75 +31,11 @@ public class EpisodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_episode);
         SeasonActivity.mHelper=new TaskDbHelper(this);
         mTaskListViewEp=(ListView)findViewById(R.id.list_todo);
-        et1=(EditText)findViewById(R.id.editText);
-        et2=(EditText)findViewById(R.id.editText2);
-        et3=(EditText)findViewById(R.id.editText3);
         updateUI();
         mTaskListViewEp.setOnItemClickListener((AdapterView.OnItemClickListener) new ListClickHandler());
 
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_add_task:
-                final EditText taskEditText = new EditText(this);
-
-                AlertDialog dialog = new AlertDialog.Builder(this)
-                        .setTitle("Add a new task")
-                        .setMessage("What do you want to do next?")
-                        .setView(taskEditText)
-                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String task = String.valueOf(taskEditText.getText());
-                                SQLiteDatabase db = SeasonActivity.mHelper.getWritableDatabase();
-                                ContentValues values = new ContentValues();
-                                values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
-                                values.put(TaskContract.TaskEntry.COL_TASK_Duration, et1.getText().toString());
-                                values.put(TaskContract.TaskEntry.COL_Rating, et2.getText().toString());
-                                values.put(TaskContract.TaskEntry.COL_TASK_Summary, et3.getText().toString());
-
-                                if(SeasonActivity.Item==0){
-                                    db.insertWithOnConflict(TaskContract.TaskEntry.TABLE1,
-                                            null,
-                                            values,
-                                            SQLiteDatabase.CONFLICT_REPLACE);
-                                }
-                                else{
-                                    if(SeasonActivity.Item==1){
-                                        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE2,
-                                                null,
-                                                values,
-                                                SQLiteDatabase.CONFLICT_REPLACE);
-                                    }
-                                    else{
-                                        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE3,
-                                                null,
-                                                values,
-                                                SQLiteDatabase.CONFLICT_REPLACE);
-                                    }
-                                }
-                                db.close();
-                                updateUI();
-                            }
-                        })
-                        .setNegativeButton("Cancel", null)
-                        .create();
-                dialog.show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     private void updateUI() {
         ArrayList<String> taskList = new ArrayList<>();
         SQLiteDatabase db = SeasonActivity.mHelper.getReadableDatabase();
