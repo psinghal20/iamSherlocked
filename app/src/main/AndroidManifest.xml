@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".EpisodeActivity" />
         <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".FirstActivity"></activity>
     </application>
 
 </manifest>
