@@ -9,15 +9,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SeasonActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".EpisodeActivity" />
         <activity android:name=".DetailsActivity"></activity>
-        <activity android:name=".FirstActivity"></activity>
+        <activity android:name=".FirstActivity"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
     </application>
 
 </manifest>
