@@ -1,16 +1,20 @@
 package com.example.psing.sherlocked2;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView t1,t2,t3,t4;
     ImageView imageView;
+    ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +24,7 @@ public class DetailsActivity extends AppCompatActivity {
         t4 = (TextView) findViewById(R.id.textView12);
         t1 = (TextView) findViewById(R.id.textView9);
         imageView=(ImageView)findViewById(R.id.imageView2);
+        imageButton=(ImageButton)findViewById(R.id.imageButton);
         Cursor res = null;
         switch (SeasonActivity.Item) {
             case 0: {
@@ -39,7 +44,7 @@ public class DetailsActivity extends AppCompatActivity {
             case 0:{
                     switch (EpisodeActivity.pos){
                         case 0:{
-                            imageView.setImageResource(R.drawable.s1e1n);
+                            imageView.setImageResource(R.drawable.s1e1);
                             break;
                         }
                         case 1:{
@@ -95,5 +100,12 @@ public class DetailsActivity extends AppCompatActivity {
             t4.setText(res.getString(3));
             t1.setText(res.getString(4));
         }
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent=new Intent(DetailsActivity.this,VideoActivity.class);
+                DetailsActivity.this.startActivity(registerIntent);
+            }
+        });
     }
 }

@@ -114,4 +114,13 @@
         android:paddingStart="0dp"
         android:paddingTop="0dp" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:layout_above="@+id/textView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:id="@+id/imageButton" />
+
 </RelativeLayout>
