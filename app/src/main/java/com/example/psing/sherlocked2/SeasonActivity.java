@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeasonActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
