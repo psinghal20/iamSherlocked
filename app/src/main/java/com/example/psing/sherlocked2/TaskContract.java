@@ -15,6 +15,7 @@ public class TaskContract {
         public static final String TABLE1 = "season1";
         public static final String TABLE2 = "season2";
         public static final String TABLE3 = "season3";
+        public static final String TABLE4 = "season4";
 
         public static final String COL_TASK_TITLE = "title";
         public static final String COL_TASK_Duration = "duration";

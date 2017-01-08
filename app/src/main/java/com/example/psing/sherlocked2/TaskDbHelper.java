@@ -32,6 +32,10 @@ public class TaskDbHelper extends SQLiteOpenHelper {
                 TaskContract.TaskEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 TaskContract.TaskEntry.COL_TASK_TITLE + " TEXT NOT NULL,duration TEXT NOT NULL,rating TEXT NOT NULL,summary TEXT NOT NULL);";
         db.execSQL(createTable);
+        createTable = "CREATE TABLE " + TaskContract.TaskEntry.TABLE4 + " ( " +
+                TaskContract.TaskEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                TaskContract.TaskEntry.COL_TASK_TITLE + " TEXT NOT NULL,duration TEXT NOT NULL,rating TEXT NOT NULL,summary TEXT NOT NULL);";
+        db.execSQL(createTable);
 
     }
 
@@ -81,6 +85,18 @@ public class TaskDbHelper extends SQLiteOpenHelper {
                 SQLiteDatabase.CONFLICT_REPLACE);
         db.close();
     }
+    public void addseason4(){
+        String task="Season 4(2017)";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+        db.close();
+    }
+
     public void adds1e1(){
         String task ="E1. A Study In Pink";
         String duration="1hr 28min";
@@ -211,12 +227,62 @@ public class TaskDbHelper extends SQLiteOpenHelper {
                 values,
                 SQLiteDatabase.CONFLICT_REPLACE);
     }
+    public void adds4e1(){
+        String task ="E1. The Six Thatchers";
+        String duration="1hr 28min";
+        String rating="8.0/10";
+        String Summary="As Sherlock waits to see Moriarty's next move, he takes on the case of finding someone who is going around and smashing six unique head statues of Margaret Thatcher.";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        values.put(TaskContract.TaskEntry.COL_TASK_Duration, duration);
+        values.put(TaskContract.TaskEntry.COL_Rating, rating);
+        values.put(TaskContract.TaskEntry.COL_TASK_Summary, Summary);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE4,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+    }
+    public void adds4e2(){
+        String task ="E2. The Lying Detective";
+        String duration="1hr 28min";
+        String rating="9.5/10";
+        String Summary="Sherlock faces one of the most chilling enemies of his long career: the powerful and seemingly unassailable Culverton Smith - a man with a very dark secret indeed.";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        values.put(TaskContract.TaskEntry.COL_TASK_Duration, duration);
+        values.put(TaskContract.TaskEntry.COL_Rating, rating);
+        values.put(TaskContract.TaskEntry.COL_TASK_Summary, Summary);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE4,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+    }
+    public void adds4e3(){
+        String task ="E3. The Final Problem";
+        String duration="1hr 28min";
+        String rating="9.5/10";
+        String Summary="Sherlock travels to Europe to escape Moriarty's vengeance.\n";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+        values.put(TaskContract.TaskEntry.COL_TASK_Duration, duration);
+        values.put(TaskContract.TaskEntry.COL_Rating, rating);
+        values.put(TaskContract.TaskEntry.COL_TASK_Summary, Summary);
+        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE4,
+                null,
+                values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
     public void deletedata(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("delete from "+ TaskContract.TaskEntry.TABLE);
         db.execSQL("delete from "+ TaskContract.TaskEntry.TABLE1);
         db.execSQL("delete from "+ TaskContract.TaskEntry.TABLE2);
         db.execSQL("delete from "+ TaskContract.TaskEntry.TABLE3);
+        db.execSQL("delete from "+ TaskContract.TaskEntry.TABLE4);
 
     }
 }

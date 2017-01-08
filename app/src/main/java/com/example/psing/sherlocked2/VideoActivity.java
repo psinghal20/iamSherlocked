@@ -26,7 +26,7 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
         youTubeView.initialize(config.DEVELOPER_KEY, this);
         switch (SeasonActivity.Item) {
             case 0: {
-                switch (EpisodeActivity.pos) {
+                switch (SeasonActivity.pos) {
                     case 0: {
                         VideoURL = "Nj7ZSUkTTVI";
                         break;
@@ -43,34 +43,34 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
                 break;
             }
             case 1: {
-                switch (EpisodeActivity.pos) {
+                switch (SeasonActivity.pos) {
                     case 0: {
-                        VideoURL = "https://youtu.be/E2MXppyXsUY";
+                        VideoURL = "E2MXppyXsUY";
                         break;
                     }
                     case 1: {
-                        VideoURL = "https://youtu.be/bm78r2innnE";
+                        VideoURL = "bm78r2innnE";
                         break;
                     }
                     case 2: {
-                        VideoURL = "https://youtu.be/eKRCt3yCXEA";
+                        VideoURL = "eKRCt3yCXEA";
                         break;
                     }
                 }
                 break;
             }
             case 2: {
-                switch (EpisodeActivity.pos) {
+                switch (SeasonActivity.pos) {
                     case 0: {
-                        VideoURL = "https://youtu.be/O7cKIjNIPoY";
+                        VideoURL = "O7cKIjNIPoY";
                         break;
                     }
                     case 1: {
-                        VideoURL = "https://youtu.be/qtGf6RvjWE4";
+                        VideoURL = "qtGf6RvjWE4";
                         break;
                     }
                     case 2: {
-                        VideoURL = "https://youtu.be/xhjIsu7n6bI";
+                        VideoURL = "xhjIsu7n6bI";
                         break;
                     }
                 }
